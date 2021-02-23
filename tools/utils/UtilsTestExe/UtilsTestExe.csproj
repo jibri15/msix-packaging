@@ -43,6 +43,6 @@
   </ItemGroup>
   <Target Name="CopyToTestData" AfterTargets="Build">
     <Message Text="xcopy /y $(TargetDir) $(SolutionDir)\UtilsTests\TestData\UtilsTestExe\" />
-    <Exec Command="xcopy /y $(TargetDir) $(SolutionDir)\UtilsTests\TestData\UtilsTestExe\" />
+    <Exec Command="xcopy /y &quot;$(TargetDir).&quot; $(SolutionDir)\UtilsTests\TestData\UtilsTestExe\" />
   </Target>
 </Project>
