@@ -38,11 +38,9 @@
   </ItemGroup>
 
   <!-- Copy built exe to test data folder -->
-  <ItemGroup>
-    <ExeFiles Include="$(TargetDir)\**\*.*"/>
-  </ItemGroup>
   <Target Name="CopyToTestData" AfterTargets="Build">
-    <Message Text="xcopy /y $(TargetDir) $(SolutionDir)\UtilsTests\TestData\UtilsTestExe\" />
-    <Exec Command="xcopy /y &quot;$(TargetDir).&quot; $(SolutionDir)\UtilsTests\TestData\UtilsTestExe\" />
+    <!-- $(TargetDir) ends with a \, which trips xcopy arg parsing.
+         Ending with a period prevents that while pointing to the same location. -->
+    <Exec Command="xcopy /y &quot;$(TargetDir).&quot; $(SolutionDir)\UtilsTests\TestData\UtilsTestExe" />
   </Target>
 </Project>
