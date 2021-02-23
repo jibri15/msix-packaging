@@ -42,7 +42,7 @@
     <ExeFiles Include="$(TargetDir)\**\*.*"/>
   </ItemGroup>
   <Target Name="CopyToTestData" AfterTargets="Build">
-    <Message Text="COPYING @(ExeFiles) to $(SolutionDir); Target: $(TargetDir)" />
-    <Copy SourceFiles="@(ExeFiles)" DestinationFiles="@(ExeFiles->'$(SolutionDir)\UtilsTests\TestData\UtilsTestExe\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Message Text="xcopy /y $(TargetDir) $(SolutionDir)\UtilsTests\TestData\UtilsTestExe\" />
+    <Exec Command="xcopy /y $(TargetDir) $(SolutionDir)\UtilsTests\TestData\UtilsTestExe\" />
   </Target>
 </Project>
