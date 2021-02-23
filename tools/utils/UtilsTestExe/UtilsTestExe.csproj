@@ -41,6 +41,6 @@
   <Target Name="CopyToTestData" AfterTargets="Build">
     <!-- $(TargetDir) ends with a \, which trips xcopy arg parsing.
          Ending with a period prevents that while pointing to the same location. -->
-    <Exec Command="xcopy /y &quot;$(TargetDir).&quot; $(SolutionDir)\UtilsTests\TestData\UtilsTestExe" />
+    <Exec Command="xcopy /y &quot;$(TargetDir).&quot; $(SolutionDir)\UtilsTests\TestData\UtilsTestExe\" />
   </Target>
 </Project>
