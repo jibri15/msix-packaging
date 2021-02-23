@@ -37,6 +37,11 @@ steps:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    msbuildArgs: '/bl:$(Build.StagingDirectory)\MSBuild.binlog'
+
+- publish: '$(Build.StagingDirectory)'
+  artifact: 'log'
+  displayName: 'Publish MSBuild logs'
 
 - task: VSTest@2
   displayName: 'Run tests'
